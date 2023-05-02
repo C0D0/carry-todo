@@ -1,3 +1,14 @@
+##
+
+Go dans le dossier todo json 
+
+npm install
+
+npm run dev
+
+go localhost
+
+
 # TP-VueJS
 Tp à rendre en mai où le but est de créer un application de gestion de tâches
 
