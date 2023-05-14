@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "json-server": "^0.17.3",
     "pinia": "^2.0.35",
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.5",
     "@vitejs/plugin-vue": "^4.1.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
