@@ -4,22 +4,18 @@
         <span :class="{ completed: todo.completed }">{{ formatName(todo.item, 20) }}</span>
         <div>
           <input type="checkbox" name="completed" v-model="todo.completed">
-          <span class="x">&#10060;</span>
+          <span @click="deleteTodo(todo.id)" class="x">&#10060;</span>
         </div>
       </div>
     </div>
   </template>
   
   <script lang="ts">
-  /*
-  import { defineComponent } from "vue";
-  import { useTodoListStore } from "../store/useTodoListStore";
-  import { storeToRefs } from "pinia";
-  */
-
   import api from '../api';
+  
 
   export default {
+    
     data() {
       return {
         todos: [] as TodoItem[],
@@ -43,7 +39,13 @@
           itemName = [...itemName].slice(0, length).join("") + "..."
         }
         return itemName;
-      }
+      },
+      
+      deleteTodo(itemID: number) {
+      this.todos = this.todos.filter((object) => {
+        return object.id !== itemID;
+        });
+      },
     },
   };
 

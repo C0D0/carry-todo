@@ -14,6 +14,7 @@
   <script lang="ts">
   import { ref, defineComponent } from "vue";
   import { useTodoListStore } from "../store/useTodoListStore";
+
   export default defineComponent({
     setup() {
       const todo = ref("");
