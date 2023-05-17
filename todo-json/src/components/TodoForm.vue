@@ -3,7 +3,7 @@
       <form @submit.prevent="addItemAndClear(todo)">
         <input v-model="todo" type="text" /><button>Ajouter une tâche</button>
         <div class="alert-div">
-          <div v-show="store.showAlert" class="alert">
+          <div v-show="store._showAlert" class="alert">
             Please type something...
           </div>
         </div>
@@ -13,19 +13,19 @@
   
   <script lang="ts">
   import { ref, defineComponent } from "vue";
-  import { useTodoListStore } from "../store/useTodoListStore";
+  import { useTodoListStore } from "../store/todoListStore";
 
   export default defineComponent({
     setup() {
       const todo = ref("");
       const store = useTodoListStore();
   
-      function addItemAndClear(item: string) {
-        if (item.length === 0) {
-          store.inputAlert();
+      function addItemAndClear(name: string) {
+        if (name.length === 0) {
+          store._inputAlert();
           return;
         }
-        store.addTodo(item);
+        store._addTaskWithName(name);
         todo.value = "";
       }
   

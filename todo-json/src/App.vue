@@ -2,11 +2,10 @@
    <div class="todo-app">
       <h1>To Do List</h1>
       <todo-form />
-      <todo-list :store="store"/>
+      <todo-list />
     </div>
 </template>
 <script setup>
-    import { useTodoListStore } from "./store/todoListStore";
     import TodoForm from "./components/TodoForm.vue";
     import TodoList from "./components/TodoList.vue";
 
@@ -16,8 +15,8 @@
         TodoForm
       }
     }
-    const store = useTodoListStore();
-    store._getTodos()
+</script>
+<script lang="ts">
 </script>
 <style>
   * {
