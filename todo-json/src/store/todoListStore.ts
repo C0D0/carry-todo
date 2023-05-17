@@ -41,7 +41,7 @@ export const useTodoListStore = defineStore("todoList", {
     _deleteTask(itemID: number) {
       deleteTask(itemID)
         .then((res):void => {
-          this._todoList.results = res.data;
+          this._todoList.results = this._todoList.results.filter((e, i) => e.id !== res.data.id);
         })
         .catch((err):void => {
           console.log(err);
