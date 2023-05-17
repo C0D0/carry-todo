@@ -2,10 +2,10 @@
     <div v-for="todo in store._todoList.results" :key="todo.id" class="list">
       <div class="item">
         <span :class="{ completed: todo.completed }">{{ todo.name }}</span>
-        <div>
+        <a href="/show/{{ todo.id }}">
           <input type="checkbox" name="completed" v-model="todo.completed">
           <span @click="deleteTodo(todo.id)" class="x">&#10060;</span>
-        </div>
+        </a>
       </div>
     </div>
   </template>
