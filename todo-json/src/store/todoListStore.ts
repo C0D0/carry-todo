@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
-import { addTask, deleteTask, updateTask, getTasks, getTask } from "../services/todo.service";
+import { addTask, deleteTask, updateTask, getTasks} from "../services/todo.service";
 import { TodoListStoreInterface, TodoItem } from "../assets/interfaces";
 
 export const useTodoListStore = defineStore("todoList", {
 
   state: (): TodoListStoreInterface => ({
     _todoList: { results: [] as TodoItem[] },
+    _editingTask: TodoItem.createEmptyTodoItem(),
     _showAlert: false,
   }),
 

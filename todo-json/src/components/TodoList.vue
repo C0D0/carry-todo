@@ -1,17 +1,18 @@
 <template>
   <div v-for="todo in store._todoList.results" :key="todo.id" class="list">
     <div class="item">
-      <span @click="displayModal(todo.id)" :class="{ completed: todo.completed }">{{ todo.name }}</span>
+      <span @click="displayModal(todo)" :class="{ completed: todo.completed }">{{ todo.name }}</span>
       <div>
         <input type="checkbox" name="completed" v-model="todo.completed">
         <span @click="deleteTodo(todo.id)" class="x">&#10060;</span>
       </div>
     </div>
   </div>
-  <EditTask :visible="modalVisible" :taskId="taskIdToDisplay" @close="closeModal" />
+  <EditTask :visible="modalVisible" @close="closeModal" />
 </template>
   
 <script lang="ts">
+import { TodoItem } from "../assets/interfaces";
 import { useTodoListStore } from "../store/todoListStore";
 import EditTask from "./EditTask.vue";
 
@@ -30,8 +31,8 @@ export default {
     deleteTodo(itemID: number) {
       this.store._deleteTask(itemID);
     },
-    displayModal(taskId: number) {
-      this.taskIdToDisplay = taskId
+    displayModal(task: TodoItem) {
+      this.store._editingTask = task
       this.modalVisible = true;
     },
     closeModal(): void {

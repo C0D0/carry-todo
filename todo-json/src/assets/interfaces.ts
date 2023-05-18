@@ -9,6 +9,7 @@ export interface TodoItemInterface {
 export interface TodoListStoreInterface {
     _todoList: { results: TodoItem[] };
     _showAlert: boolean;
+    _editingTask:TodoItem;
   }
 
 export class TodoItem implements TodoItemInterface {

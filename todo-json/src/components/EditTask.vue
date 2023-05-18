@@ -2,21 +2,21 @@
 	<div id="editTaskModal" class="modal" v-if="visible">
 		<div class="modal-content">
 			<div class="topbar">
-				<h1>Modifier la tâche n°{{ task.id }}</h1>
+				<h1>Modifier la tâche n°{{ store._editingTask.id }}</h1>
 				<button id="closeButton" @click="close">Close</button>
 			</div>
 
-			<p>Créée le {{ task.createdAt }}</p>
+			<p>Créée le {{ store._editingTask.createdAt }}</p>
 			<form id="editTaskForm" @submit="saveAndQuit">
 
 				<div class="input-group-container">
 					<div class="input-label-container">
 						<label for="name">Titre</label>
-						<input v-model="task.name" type="text" name="name">
+						<input v-model="store._editingTask.name" type="text" name="name">
 					</div>
 					<div class="input-label-container">
 						<label for="completed">Terminé</label>
-						<input v-model="task.completed" type="checkbox" name="completed" id="">
+						<input v-model="store._editingTask.completed" type="checkbox" name="completed" id="">
 					</div>
 				</div>
 
@@ -24,7 +24,7 @@
 
 				<div class="input-label-container">
 					<label for="description">Description</label>
-					<textarea v-model="task.description" name="description" rows="5" cols="40"></textarea>
+					<textarea v-model="store._editingTask.description" name="description" rows="5" cols="40"></textarea>
 				</div>
 
 				<button type="submit">Enregistrer</button>
@@ -34,7 +34,6 @@
 	</div>
 </template>
 <script lang="ts">
-import { TodoItem } from '../assets/interfaces';
 import { useTodoListStore } from '../store/todoListStore';
 
 export default {
@@ -42,25 +41,18 @@ export default {
 		"visible": {
 			type: Boolean,
 			default: false,
-		},
-		"taskId": {
-			type: Number,
-			required: true
 		}
 	},
 	data() {
 		return {
-			"task": TodoItem.createEmptyTodoItem(),
 			"store": useTodoListStore(),
 		};
 	},
 	mounted() {
-		this.task = this.store._getTask(this.taskId);
 	},
 	methods: {
 		saveAndQuit() {
-			console.log(this.task)
-			this.store._updateTask(this.task);
+			this.store._updateTask(this.store._editingTask);
 			this.$emit('close');
 		},
 		close() {
