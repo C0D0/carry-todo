@@ -19,7 +19,7 @@ export default defineComponent({
   padding: 0;
 }
 #app {
-  background-color: #597d9a;
+  background-color: #eae8e8;
   display: flex;
   justify-content: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;

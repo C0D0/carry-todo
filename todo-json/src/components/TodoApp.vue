@@ -21,7 +21,11 @@
   .todo-app {
     padding: 5vh;
     min-height: 100vh;
-    width: 30vw;
+    width: 400px;
     background-color: #f7f9fc;
+  }
+  h1 {
+    text-transform: uppercase;
+    text-decoration: underline;
   }
   </style>
