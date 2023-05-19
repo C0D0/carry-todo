@@ -6,6 +6,8 @@ npm install
 
 npm run dev
 
+node mock-api.js (sur un autre terminal pour le serveur)
+
 go localhost
 
 
