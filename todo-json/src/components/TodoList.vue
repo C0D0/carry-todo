@@ -3,7 +3,7 @@
     <div class="item">
       <span @click="displayModal(todo)" :class="{ completed: todo.completed }">{{ todo.name }}</span>
       <div>
-        <input type="checkbox" name="completed" v-model="todo.completed">
+        <input type="checkbox" name="completed" @click="toggleCompleted(todo)" v-model="todo.completed">
         <span @click="deleteTodo(todo.id)" class="x">&#10060;</span>
       </div>
     </div>
@@ -37,6 +37,10 @@ export default {
     },
     closeModal(): void {
       this.modalVisible = false;
+    },
+    toggleCompleted(todo:TodoItem) {
+      todo.completed = !todo.completed;
+      this.store._updateTask(todo);
     }
   },
   components: { EditTask }
