@@ -51,7 +51,6 @@
     font-size: large;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 7px;
   }
-  */
   .alert-div {
     min-height: 25px
   }
