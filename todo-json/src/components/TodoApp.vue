@@ -19,13 +19,13 @@
   </script>
   <style scoped>
   .todo-app {
-    padding: 5vh;
-    min-height: 100vh;
-    width: 400px;
-    background-color: #f7f9fc;
+    width: 600px;
   }
+
   h1 {
     text-transform: uppercase;
-    text-decoration: underline;
+    Font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    color: rgb(0, 217, 255);
+    margin-top:50px;
   }
   </style>

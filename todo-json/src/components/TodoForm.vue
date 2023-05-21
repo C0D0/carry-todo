@@ -2,7 +2,7 @@
     <div>
       <form @submit.prevent="addItemAndClear(todo)">
         <input v-model="todo" type="text" />
-        <button class="button-53" role="button">Ajouter la tache</button>
+        <button class="button-53" role="button">Ajouter une tâche</button>
         <div class="alert-div">
           <div v-show="store.showAlert" class="alert">
             Rentrez une tache
@@ -42,23 +42,16 @@
   
   input {
     margin-top: 50px;
-    margin-bottom: 15px;
+    margin-bottom: 27px;
     padding: 0.25rem 0.2rem;
     width: 100%;
     display: block;
+    text-align: center;
+    border-radius: 10px;
+    font-size: large;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 7px;
   }
-  /*
-  button {
-    margin-left: 30px;
-    background-color: #2f6089;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    font-weight: 800;
-    color: white;
-    width: 20%;
-  }
-  */
+  
   .alert-div {
     min-height: 25px
   }
@@ -111,4 +104,4 @@
   left: 0.5px;
 }
 
-  </style>
+</style>

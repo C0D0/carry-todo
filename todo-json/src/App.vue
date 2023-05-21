@@ -19,7 +19,6 @@ export default defineComponent({
   padding: 0;
 }
 #app {
-  background-color: #eae8e8;
   display: flex;
   justify-content: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -27,5 +26,7 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #eae8e8;
+  min-height: 100vh;
 }
 </style>
