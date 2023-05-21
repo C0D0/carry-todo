@@ -28,4 +28,8 @@
     color: rgb(0, 217, 255);
     margin-top:50px;
   }
+  h1 {
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
   </style>
