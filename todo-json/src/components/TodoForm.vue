@@ -1,7 +1,7 @@
 <template>
     <div>
       <form @submit.prevent="addItemAndClear(todo)">
-        <input v-model="todo" type="text" /><button>Ajouter une tâche</button>
+        <input v-model="todo" type="text" /><button>Ajouter</button>
         <div class="alert-div">
           <div v-show="store._showAlert" class="alert">
             Please type something...
@@ -45,15 +45,22 @@
     height: 20px;
     width: 50%;
   }
+  input[type="text"] {
+    border: solid 1px var(--main-color);
+    border-radius: 1rem;
+    width: 12rem;
+    height: 2rem;
+    padding: 0.5rem;
+  }
+
   button {
     margin-left: 30px;
-    background-color: #2f6089;
-    padding: 5px 10px;
+    background-color: var(--main-color);
+    padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
     font-weight: 800;
     color: white;
-    width: 20%;
   }
   
   .alert-div {

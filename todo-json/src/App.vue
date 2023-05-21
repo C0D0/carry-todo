@@ -19,13 +19,24 @@ const app = {
 <script lang="ts">
 </script>
 <style>
+:root{
+  --text-color:rgb(54, 0, 54);  
+  --main-color:purple;
+}
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 #app {
-  background-color: #597d9a;
   display: flex;
   justify-content: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -33,12 +44,15 @@ const app = {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #fcfcff;
 }
 
 .todo-app {
-  padding: 5vh;
-  min-height: 100vh;
-  width: 30vw;
-  background-color: #f7f9fc;
-}
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:3rem;
+  max-width: 50vw;
+  }
 </style>

@@ -1,9 +1,10 @@
 <template>
-  <div v-for="todo in store._todoList.results" :key="todo.id" class="list">
-    <div class="item">
+  <div class="list">
+    <div v-for="todo in store._todoList.results" :key="todo.id" class="item">
       <span @click="displayModal(todo)" :class="{ completed: todo.completed }">{{ todo.name }}</span>
-      <div>
-        <input type="checkbox" name="completed" @click="toggleCompleted(todo)" v-model="todo.completed">
+      <div class="actions-container">
+        <span class="checkbox" :class="{ 'checked': todo.completed }" name="completed"
+          @click="toggleCompleted(todo)"></span>
         <span @click="deleteTodo(todo.id)" class="x">&#10060;</span>
       </div>
     </div>
@@ -38,7 +39,7 @@ export default {
     closeModal(): void {
       this.modalVisible = false;
     },
-    toggleCompleted(todo:TodoItem) {
+    toggleCompleted(todo: TodoItem) {
       todo.completed = !todo.completed;
       this.store._updateTask(todo);
     }
@@ -57,15 +58,55 @@ span {
 }
 
 .list {
+  width: 100%;
   display: flex;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .item {
   display: flex;
   font-size: 1.5em;
+  align-items: center;
   justify-content: space-between;
-  width: 80vw;
-  padding: 5px;
+  padding: 1rem 0.5rem;
+  margin: 0.5rem;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.actions-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.checkbox {
+  display: block;
+  width: 1.5rem;height:1.5rem;
+  border: solid 2px var(--main-color);
+  border-radius: 1rem;
+  box-shadow: 0 0 0.3rem 0 var(--main-color);
+}
+
+.checked {
+  
+  background-color: var(--main-color);
+}
+
+.checked:after {
+  content:"";
+  display: block;
+  position: relative;
+  left: 0.45rem;
+  top: 0.3rem;
+  width: 0.25rem;
+  height: 0.5rem;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 </style>
