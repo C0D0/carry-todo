@@ -25,7 +25,6 @@ const app = {
 }
 
 #app {
-  background-color: #597d9a;
   display: flex;
   justify-content: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -33,6 +32,8 @@ const app = {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #eae8e8;
+  min-height: 100vh;
 }
 
 .todo-app {
